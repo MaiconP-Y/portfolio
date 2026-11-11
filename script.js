@@ -133,14 +133,6 @@ document.querySelectorAll('.rv').forEach(function(el) {
     }
     getColors();
 
-    // Atualiza cores caso a preferência de tema claro/escuro mude
-    matchMedia('(prefers-color-scheme: light)').addEventListener('change', function() {
-        setTimeout(function() {
-            getColors();
-            render(); // Redesenha com as novas cores (o loop pode estar pausado)
-        }, 50);
-    });
-
     // Inicializa as partículas com posições (x, y, z) aleatórias no espaço 3D
     for (var i = 0; i < totalParticles; i++) {
         particles.push({
