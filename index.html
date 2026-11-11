@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas de codificação e responsividade para dispositivos móveis -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    
+    <!-- Título da página exibido na aba do navegador -->
+    <title>Maicon Prado — Sistemas sob medida em Sengés e Itararé</title>
+    
+    <!-- Meta tag de descrição para SEO (buscadores como o Google) -->
+    <meta name="description" content="Sistemas sob medida em Sengés, Itararé e região: híbridos (local + web) ou 100% online para todo o Brasil.">
+
+    <!-- Pré-conexão com os servidores de fontes do Google para otimizar o tempo de carregamento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Importação da fonte 'Plus Jakarta Sans' com variações de peso (500, 700, 800) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Elemento Canvas onde as partículas flutuantes 3D são desenhadas -->
+    <canvas id="bg" aria-hidden="true"></canvas>
+
+    <!-- Barra de Navegação -->
+    <nav>
+        <b>Maicon Prado</b>
+        <div>
+            <a href="#modelos">Modelos</a>
+            <a href="#comparativo">Comparativo</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção Principal / Hero -->
+        <section class="hero">
+            <div class="w">
+                <span class="ey">Sistemas com tecnologias mais modernas do mercado</span>
+                <h1>Sites e sistemas em geral sob medida para <em>reduzir custos</em>.</h1>
+                <p class="lead">Antes de qualquer código, entendo seu nicho, suas plataformas atuais e suas reais necessidades — seja para pedidos, caixa ou e-commerce.</p>
+                <p class="lead" style="font-size: 0.95rem; margin-top: 0.8rem; margin-bottom: 0.8rem; color: var(--mu);">
+                    O objetivo é centralizar operações, cortar custos e automatizar desde um financeiro enxuto até a emissão de notas. Tudo isso integrando chatbots com ou sem IA para filtrar o atendimento e garantir que você gaste tempo apenas com o que importa.
+                </p>
+                <p class="lead" style="font-size: 0.95rem; margin-top: 0.8rem;">
+                    📍 Instalação e suporte presencial em Sengés, Itararé e região. Sistemas online para todo o Brasil.
+                </p>
+                <div class="b">
+                    <a class="btn p" href="#contato">Solicitar orçamento</a>
+                    <a class="btn" href="#modelos">Ver os modelos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Comparativo Direto (Substituindo o Como Funciona) -->
+        <section id="comparativo">
+            <div class="w">
+                <span class="ey rv">Por que escolher sob medida</span>
+                <h2 class="rv">Sistemas alugados vs. solução sob medida <em>com sua infraestrutura</em></h2>
+                <p class="lead rv">Veja na prática a diferença entre alugar uma ferramenta com funcionalidades que te deixam perdidos e ter uma estrutura construída para a realidade da sua operação.
+                </p>
+                
+                <div class="g2">
+                    <!-- Lado Esquerdo: Sistemas Comuns -->
+                    <div class="card rv">
+                        <span class="tag">Sistemas tradicionais</span>
+                        <h3>O que o mercado empurra</h3>
+                        <p>Soluções engessadas que cobram caro aumentando juros conforme escalão e deixam sua operação dependente de terceiros.</p>
+                        <ul class="no-list">
+                            <li>Mensalidades e taxas por venda que só aumentam</li>
+                            <li>Dependência total de internet (caiu a rede, parou o gerenciamento que poderia ser feito localmente)</li>
+                            <li>Suporte lento e robótico quando você mais precisa</li>
+                            <li>Funções genéricas que não encaixam no seu fluxo</li>
+                            <li>Seus dados financeiros presos em servidores externos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Lado Direito: Sua Solução (com destaque .hl) -->
+                    <div class="card hl rv">
+                        <span class="tag">Sua operação sob medida</span>
+                        <h3>O modelo híbrido ou online</h3>
+                        <p>Controle total, podendo isolar certas operações localmente e mantendo só o necessário online.</p>
+                        <ul>
+                            <li>Sem taxas abusivas por venda ou mensalidades absurdas, você paga apenas pelo que usa, em casos pequenos nem há manutenção</li>
+                            <li>Decidimos o que fica online ou na sua máquina</li>
+                            <li>Continua operando normalmente mesmo sem internet utilizando o sistema local</li>
+                            <li>Atendimento direto com quem desenvolveu o sistema</li>
+                            <li>Feito sob medida para o seu negócio sem funcionalidades descartáveis</li>
+                            <li>Dados e backups seguros na sua própria máquina</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Modelos de Arquitetura -->
+        <section id="modelos">
+            <div class="w">
+                <span class="ey rv">Dois caminhos</span>
+                <h2 class="rv">Escolha o modelo que cabe na <em>sua operação</em></h2>
+                <p class="lead rv">Mesma solução, duas arquiteturas. Você decide o nível de controle, custo e infraestrutura. 
+                    Vale ressaltar que ambas as opções oferecem os mesmos benefícios em termos de funcionalidades. 
+                    Dois produtos escaláveis caso seu negócio cresça, deixando só o necessário ficar 24 horas no ar.</p>
+                
+                <div class="g2">
+                    <!-- Modelo Híbrido -->
+                    <div class="card hl rv">
+                        <span class="tag">Híbrido</span>
+                        <h3>Metade local, metade web</h3>
+                        <p>O sistema roda no computador da empresa e uma ponte segura o conecta à web se necessário. 
+                        Focado em operações físicas e negócios robustos — como lojas, restaurantes, mercados, etc. 
+                        Para quem tem volume alto de dados e não pode parar de funcionar se a internet oscilar.
+                        Podendo crescer conforme a necessidade seja para internet ou localmente.</p>
+                        <ul>
+                            <li>Dados sensíveis ficam com você</li>
+                            <li>Funciona com internet instável</li>
+                            <li>Baixa financeira em tempo real</li>
+                            <li>Sem mensalidade de nuvem</li>
+                            <li>Instalação e suporte presencial em Sengés, Itararé e região</li>
+                            <li>Backups locais ou na nuvem automáticos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Modelo Cloud/Nuvem -->
+                    <div class="card rv">
+                        <span class="tag">100% online</span>
+                        <h3>Menos infraestrutura, mais praticidade</h3>
+                        <p>Tudo na nuvem, acessível pelo navegador ou celular, sem instalar nem manter nada. 
+                        Ideal para novos e-commerces que precisam estar 24 horas no ar.
+                        Desde pequenos sites de divulgação simples como um portfólio ou lojas físicas que não precisam de controle de estoque podem ser divulgadas gratuitamente sem domínio próprio até lojas maiores que precisam de um e-commerce completo com checkout, carrinho, vitrine e integração com marketplaces.
+                        </p>
+                        <ul>
+                            <li>Nada para instalar</li>
+                            <li>Acesso de qualquer dispositivo</li>
+                            <li>Backups e atualizações centralizados</li>
+                            <li>Ideal para começar rápido</li>
+                            <li>Atendimento para todo o Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Serviços Oferecidos -->
+        <section>
+            <div class="w">
+                <span class="ey rv">O que eu faço</span>
+                <h2 class="rv">Soluções para <em>vender e operar</em> melhor, podendo adicionar qualquer funcionalidade</h2>
+                
+                <div class="g3">
+                    <div class="card rv">
+                        <h3>⚡ Automação de pedidos e caixa</h3>
+                        <p>Pedidos online integrados ao financeiro, sem digitação e sem erro de conferência.</p>
+                    </div>
+                    <div class="card rv">
+                        <h3>🌐 Web e e-commerce</h3>
+                        <p>Vitrines e catálogos com a sua marca, rápidos e pensados para converter.</p>
+                    </div>
+                    <div class="card hl rv">
+                        <h3>🤖 Chatbots de atendimento e centralização de agenda</h3>
+                        <p>Atendimento automatizado para esclarecer dúvidas e auxiliar no processo de venda ou até mesmo efetuar vendas, agendamentos, etc.</p>
+                    </div>
+                </div>
+
+                <div class="nota rv">
+                    <p><b>Dados e planilhas:</b> extração das informações do sistema para CSV e Excel, para levar relatórios ao contador ou analisar do seu jeito.</p>
+                    <p><b>Tecnologia:</b> escolho a ferramenta certa para cada projeto — Go para serviços locais rápidos e leves, Django para sistemas web com painel administrativo e banco de dados robusto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Contato / Chamada para Ação -->
+        <section id="contato" class="ct">
+            <div class="w">
+                <span class="ey rv">Vamos conversar</span>
+                <h2 class="rv">Peça um <em>orçamento</em> sem compromisso</h2>
+                <p class="lead rv">Conte sobre o seu negócio e eu indico o modelo mais adequado. Atendo presencialmente Sengés, Itararé e região, e todo o Brasil de forma online.</p>
+                
+                <div class="b rv">
+                    <a class="btn" href="https://wa.me/5543999817467?text=Ol%C3%A1%20Maicon%2C%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp</a>
+                    <a class="btn" href="https://www.linkedin.com/in/maicon-prado-483b00251" target="_blank" rel="noopener">LinkedIn</a>
+                    <a class="btn" href="https://github.com/MaiconP-Y" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        © <span id="y"></span> Maicon Prado · Sistemas sob medida · Sengés/PR · Itararé/SP
+    </footer>
+
+    <!-- ==========================================================================
+       7. SCRIPTS (LOGICA DE INTERATIVIDADE & CANVAS 3D)
+       ========================================================================== -->
+    <script src="script.js"></script>
+</body>
+</html>
