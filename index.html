@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     
     <!-- Título da página exibido na aba do navegador -->
-    <title>Maicon Prado — Sistemas sob medida em Sengés e Itararé</title>
+    <title>Maicon Prado — Sistemas sob medida</title>
     
     <!-- Meta tag de descrição para SEO (buscadores como o Google) -->
     <meta name="description" content="Sistemas sob medida em Sengés, Itararé e região: híbridos (local + web) ou 100% online para todo o Brasil.">
@@ -26,7 +26,7 @@
 
     <!-- Barra de Navegação -->
     <nav>
-        <b>Maicon Prado</b>
+        <b>Portfólio - Maicon Prado</b>
         <div>
             <a href="#modelos">Modelos</a>
             <a href="#comparativo">Comparativo</a>
@@ -43,10 +43,10 @@
                 <span class="ey">Sistemas com tecnologias mais modernas do mercado</span>
                 <h1>Sites e sistemas em geral sob medida para <em>reduzir custos</em>.</h1>
                 <p class="lead">Antes de qualquer código, entendo seu nicho, suas plataformas atuais e suas reais necessidades — seja para pedidos, caixa ou e-commerce.</p>
-                <p class="lead" style="font-size: 0.95rem; margin-top: 0.8rem; margin-bottom: 0.8rem; color: var(--mu);">
+                <p class="lead">
                     O objetivo é centralizar operações, cortar custos e automatizar desde um financeiro enxuto até a emissão de notas. Tudo isso integrando chatbots com ou sem IA para filtrar o atendimento e garantir que você gaste tempo apenas com o que importa.
                 </p>
-                <p class="lead" style="font-size: 0.95rem; margin-top: 0.8rem;">
+                <p class="lead">
                     📍 Instalação e suporte presencial em Sengés, Itararé e região. Sistemas online para todo o Brasil.
                 </p>
                 <div class="b">
@@ -151,26 +151,43 @@
                 <span class="ey rv">O que eu faço</span>
                 <h2 class="rv">Soluções para <em>vender e operar</em> melhor, podendo adicionar qualquer funcionalidade</h2>
 
-                <div class="g4">
-                    <div class="card rv">
-                        <span class="ic" aria-hidden="true">⚡</span>
-                        <h3>Automação de pedidos e caixa</h3>
-                        <p>Pedidos online integrados ao financeiro, sem digitação e sem erro de conferência.</p>
+                <div class="srv rv" id="servicos" role="group" aria-roledescription="carrossel" aria-label="Serviços">
+                    <div class="slides">
+                        <!-- Slide 1: E-commerce -->
+                        <article class="slide active" data-id="ecommerce" aria-label="1 de 2">
+                            <div class="slide-txt">
+                                <span class="ic" aria-hidden="true">🌐</span>
+                                <h3>Web e e-commerce</h3>
+                                <p>Vitrines e catálogos com a sua marca, rápidos e pensados para converter. Com vendas ou com direcionamento para onde quiser.</p>
+                                <button type="button" class="btn p demo" data-demo="ecommerce" data-demo-url="https://flipstylecompany.com.br">▶ Ver site</button>
+                            </div>
+                            <div class="media">
+                                <img src="assets/img/flipstyle_portfolio.webp" alt="Loja FlipStyle Company" loading="lazy">
+                            </div>
+                        </article>
+
+                        <!-- Slide 2: Relatórios / Financeiro -->
+                        <article class="slide" data-id="relatorios" aria-label="2 de 2">
+                            <div class="slide-txt">
+                                <span class="ic" aria-hidden="true">📊</span>
+                                <h3>Controle financeiro e relatórios</h3>
+                                <p>Gestão de caixa, controle de diárias e extração facilitada para CSV e Excel, ideal para conferência rápida ou envio ao contador. Acesse a versão interativa abaixo para testar os lançamentos e filtros na prática.</p>
+                                <button type="button" class="btn p demo" data-demo="relatorios" data-demo-url="https://maiconp-y.github.io/financeiro_estatico/">▶ Testar sistema demo</button>
+                            </div>
+                            <div class="media">
+                                <img src="assets/img/dashboard.webp" alt="Dashboard Financeiro" loading="lazy">
+                            </div>
+                        </article>
                     </div>
-                    <div class="card rv">
-                        <span class="ic" aria-hidden="true">🌐</span>
-                        <h3>Web e e-commerce</h3>
-                        <p>Vitrines e catálogos com a sua marca, rápidos e pensados para converter.</p>
-                    </div>
-                    <div class="card hl rv">
-                        <span class="ic" aria-hidden="true">🤖</span>
-                        <h3>Chatbots e agenda centralizada</h3>
-                        <p>Atendimento automatizado para esclarecer dúvidas e auxiliar no processo de venda ou até mesmo efetuar vendas, agendamentos, etc.</p>
-                    </div>
-                    <div class="card rv">
-                        <span class="ic" aria-hidden="true">📊</span>
-                        <h3>Dados e relatórios em planilhas</h3>
-                        <p>Extração facilitada de informações do sistema para CSV e Excel, ideal para conferência rápida ou envio de relatórios ao contador.</p>
+
+                    <div class="srv-ctrl">
+                        <!-- Atualizado para refletir o total de 2 itens -->
+                        <span class="srv-count"><b id="srvN">01</b> / 02</span>
+                        <div class="srv-dots" id="srvDots" aria-hidden="true"></div>
+                        <div class="srv-nav">
+                            <button type="button" class="srv-btn" id="srvPrev" aria-label="Anterior">←</button>
+                            <button type="button" class="srv-btn" id="srvNext" aria-label="Próximo">→</button>
+                        </div>
                     </div>
                 </div>
             </div>

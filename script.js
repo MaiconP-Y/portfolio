@@ -16,6 +16,93 @@ document.querySelectorAll('.rv').forEach(function(el) {
     io.observe(el);
 });
 
+// 2.1 Carrossel de serviços (animação simples: desliza + fade)
+(function() {
+    var slides = document.querySelectorAll('.slide');
+    if (!slides.length) return;
+
+    var dotsBox = document.getElementById('srvDots'),
+        counter = document.getElementById('srvN'),
+        root = document.getElementById('servicos'),
+        idx = 0, busy = false, dots = [],
+        reduce = matchMedia('(prefers-reduced-motion: reduce)').matches,
+        dur = reduce ? 0 : 450;
+
+    slides.forEach(function(s, i) {
+        var d = document.createElement('i');
+        if (i === 0) d.className = 'on';
+        dotsBox.appendChild(d);
+        dots.push(d);
+        s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+    });
+
+    function go(n, dir) {
+        n = (n + slides.length) % slides.length;
+        if (busy || n === idx) return;
+        busy = true;
+        dir = dir || (n > idx ? 1 : -1);
+
+        var out = slides[idx], inn = slides[n];
+        out.classList.add('leaving');
+        out.classList.remove('active');
+        inn.classList.add('active');
+        out.setAttribute('aria-hidden', 'true');
+        inn.setAttribute('aria-hidden', 'false');
+
+        var opt = { duration: dur, easing: 'cubic-bezier(.2,.7,.2,1)' };
+        out.animate([{ opacity: 1, transform: 'none' },
+                     { opacity: 0, transform: 'translateX(' + (-dir * 40) + 'px) scale(.98)' }], opt);
+        inn.animate([{ opacity: 0, transform: 'translateX(' + (dir * 40) + 'px) scale(.98)' },
+                     { opacity: 1, transform: 'none' }], opt)
+           .onfinish = function() { out.classList.remove('leaving'); busy = false; };
+        if (!dur) { out.classList.remove('leaving'); busy = false; }
+
+        dots[idx].classList.remove('on');
+        dots[n].classList.add('on');
+        counter.textContent = ('0' + (n + 1)).slice(-2);
+        idx = n;
+    }
+
+    document.getElementById('srvNext').addEventListener('click', function() { go(idx + 1, 1); });
+    document.getElementById('srvPrev').addEventListener('click', function() { go(idx - 1, -1); });
+
+    // Teclado (setas) quando o carrossel tem foco
+    root.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') go(idx + 1, 1);
+        if (e.key === 'ArrowLeft')  go(idx - 1, -1);
+    });
+
+    // Arrastar no celular (swipe)
+    var x0 = null;
+    root.addEventListener('touchstart', function(e) { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', function(e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 50) go(dx < 0 ? idx + 1 : idx - 1, dx < 0 ? 1 : -1);
+        x0 = null;
+    });
+
+    // Gatilho das demos: abre data-demo-url; sem link, avisa e dispara o evento "demo"
+    var toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    document.body.appendChild(toast);
+    var tt;
+
+    document.querySelectorAll('.demo').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var url = btn.dataset.demoUrl, id = btn.dataset.demo;
+            // Ponto de extensão: ouça este evento para abrir um modal/iframe de demo
+            document.dispatchEvent(new CustomEvent('demo', { detail: { id: id, url: url } }));
+            if (url) { window.open(url, '_blank', 'noopener'); return; }
+            toast.textContent = 'Demo em breve: ' + id;
+            toast.classList.add('show');
+            clearTimeout(tt);
+            tt = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+        });
+    });
+})();
+
 // 3. Efeito de Partículas 3D em Canvas Puro (Zero Bibliotecas)
 (function() {
     var canvas = document.getElementById('bg'),
