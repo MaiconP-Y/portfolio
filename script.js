@@ -67,11 +67,15 @@ document.querySelectorAll('.rv').forEach(function(el) {
 
     // Ajusta o tamanho do Canvas dinamicamente na tela mantendo a proporção de pixels (Retina/High DPI)
     function resizeCanvas() {
-        var dpi = Math.min(devicePixelRatio || 1, isMobile ? 1 : 1.5); // Celular: 1x (menos pixels para pintar)
+        var dpi = Math.min(devicePixelRatio || 1, isMobile ? 1 : 1.5);
         width = innerWidth;
-        height = innerHeight;
+        // Celular: usa sempre a maior altura possível, assim a barra do navegador
+        // aparecendo/sumindo não muda o tamanho do canvas nem causa redimensionamento
+        height = isMobile ? Math.max(innerHeight, screen.height) : innerHeight;
         canvas.width = width * dpi;
         canvas.height = height * dpi;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
         ctx.setTransform(dpi, 0, 0, dpi, 0, 0);
     }
     addEventListener('resize', function() {
@@ -94,7 +98,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
         ctx.clearRect(0, 0, width, height); // Limpa a tela a cada frame
 
         // Rotação da câmera 3D baseada no tempo e na rolagem
-        var angle = time * .0001 + scrollYPos * .0005,
+        var angle = time * .0001 + scrollYPos * .0004,
             cos = Math.cos(angle),
             sin = Math.sin(angle);
 
@@ -111,7 +115,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
 
             ctx.fillStyle = 'rgba(' + (p.k ? color1 : color2) + ',' + (.15 + u * .6) + ')';
             ctx.beginPath();
-            ctx.arc(screenX, screenY, .7 + u * 1.8, 0, 6.2832);
+            ctx.arc(screenX, screenY, .7 + u * 3.0, 0, 6.2832);
             ctx.fill();
         }
 
