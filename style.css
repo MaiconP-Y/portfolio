@@ -8,7 +8,7 @@
     /* Suporte para entalhes/notches de celulares (iPhones modernos) */
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
-
+    color-scheme: dark;
     /* Paleta de Cores (Dark Mode) */
     --bg: #0b0d12;              /* Cor de fundo principal */
     --card: #141922;            /* Fundo dos cartões */
@@ -20,7 +20,6 @@
     --bt: #06210f;              /* Cor de texto para botões verdes */
     --p1: 0, 230, 118;          /* RGB da partícula verde (para o Canvas) */
     --p2: 34, 211, 238;         /* RGB da partícula ciano (para o Canvas) */
-    color-scheme: dark;
 }
 
 /* Tema Claro Automático (caso o usuário use o sistema operacional no modo claro) */
