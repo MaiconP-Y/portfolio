@@ -1,42 +1,50 @@
 /* ==========================================================================
-   1. VARIÁVEIS DE ESTILO (THEMING & DESIGN TOKENS)
+   1. VARIÁVEIS (DESIGN TOKENS)
    ========================================================================== */
 
-/* Tema escuro (padrão) */
 :root {
-    box-sizing: border-box;
-    /* Suporte para entalhes/notches de celulares (iPhones modernos) */
+    /* Suporte para entalhes/notches de celulares */
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
     color-scheme: dark;
-    /* Paleta de cores (dark mode) */
-    --bg: #0b0d12;              /* Cor de fundo principal */
-    --card: #141922;            /* Fundo dos cartões */
-    --bd: rgba(255, 255, 255, .09); /* Cor das bordas finas */
-    --tx: #f3f4f6;              /* Cor do texto principal */
-    --mu: #d2d6dd;              /* Cor do texto secundário/apagado */
-    --g: #00af5a;               /* Destaque verde (neon/esmeralda) */
-    --c: #1eadc4;               /* Destaque ciano */
-    --bt: #06210f;              /* Cor de texto para botões verdes */
-    --p1: 0, 230, 118;          /* RGB da partícula verde (para o canvas) */
-    --p2: 34, 211, 238;         /* RGB da partícula ciano (para o canvas) */
+
+    /* Cores */
+    --bg: #0b0d12;                  /* Fundo principal */
+    --card: #141922;                /* Fundo dos cartões */
+    --bd: rgba(255, 255, 255, .09); /* Bordas finas */
+    --tx: #f3f4f6;                  /* Texto principal */
+    --mu: #d2d6dd;                  /* Texto secundário */
+    --g: #00af5a;                   /* Destaque verde */
+    --c: #1eadc4;                   /* Destaque ciano */
+    --bt: #06210f;                  /* Texto de botão verde */
+    --bad: #ef4444;                 /* Ícone ✕ das desvantagens */
+    --p1: 0, 230, 118;              /* RGB verde (canvas + tint) */
+    --p2: 34, 211, 238;             /* RGB ciano (canvas + tint) */
+
+    /* Formas e espaçamentos reutilizados */
+    --r: 6px;                       /* Raio de cards e blocos */
+    --r-ui: 10px;                   /* Raio de botões */
+    --gap: 1.3rem;                  /* Espaço entre cards/grids */
+    --sp: 2.2rem;                   /* Espaço acima de grids/blocos */
+
+    /* Gradientes reutilizados */
+    --grad: linear-gradient(90deg, var(--g), var(--c));
+    --tint: linear-gradient(135deg, rgba(var(--p1), .10), rgba(var(--p2), .10)), var(--bg);
 }
 
 /* ==========================================================================
-   2. REGRAS GERAIS & RESET
+   2. RESET & REGRAS GERAIS
    ========================================================================== */
 
-html {
-    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links do menu */
-    scroll-padding-top: env(safe-area-inset-top, 0px);
-    height: 100%;
-}
-
-/* Reset básico de margens e bordas */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: env(safe-area-inset-top, 0px);
 }
 
 body {
@@ -44,38 +52,37 @@ body {
     color: var(--tx);
     font: 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     overflow-x: hidden;
-    min-height: 100%;
 }
+
+button { font: inherit; cursor: pointer; }
 
 #bg {
     position: fixed;
     top: 0;
     left: 0;
-    /* width/height são definidos pelo JS em pixels (evita esticar no celular) */
     z-index: -1;
     pointer-events: none;
-    transform: translateZ(0); /* camada própria na GPU */
+    transform: translateZ(0); /* camada própria na GPU (width/height vêm do JS) */
 }
 
-/* Container de layout centralizado */
+/* Container centralizado */
 .w {
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
-/* Seções da página */
 section {
     padding: 2rem 0;
-    content-visibility: auto; /* Otimização de renderização do navegador */
+    content-visibility: auto;
     contain-intrinsic-size: auto 600px;
 }
 
 /* ==========================================================================
-   3. TIPOGRAFIA & ELEMENTOS DE TEXTO
+   3. TIPOGRAFIA
    ========================================================================== */
 
-.ey { /* Eyebrow: texto pequeno e destacado em cima dos títulos */
+.ey { /* Texto pequeno acima dos títulos */
     font-size: .75rem;
     font-weight: 700;
     letter-spacing: .12em;
@@ -86,8 +93,8 @@ section {
 }
 
 h1 {
-    font-size: clamp(2.2rem, 5.4vw, 3.9rem); /* Fonte responsiva que se adapta à tela */
-    line-height: 1.08;
+    font-size: clamp(1.6rem, 4.0vw, 2.4rem);
+    line-height: 1.12;
     font-weight: 800;
     letter-spacing: -.03em;
 }
@@ -100,34 +107,32 @@ h2 {
     margin-bottom: .9rem;
 }
 
-em { /* Texto com gradiente colorido (verde para ciano) */
+em { /* Texto com gradiente */
     font-style: normal;
-    background: linear-gradient(90deg, var(--g), var(--c));
+    background: var(--grad);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-.lead { /* Parágrafos principais e explicativos */
+.lead {
     color: var(--mu);
     max-width: 620px;
     font-size: 1.05rem;
 }
 
 /* ==========================================================================
-   4. NAVEGAÇÃO (NAV) & HERO
+   4. NAV, HERO E BOTÕES
    ========================================================================== */
 
 nav {
     position: sticky;
     top: env(safe-area-inset-top, 0px);
     z-index: 9;
-    /* Alinha logo à esquerda e links à direita */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: .9rem max(1.5rem, calc((100% - 1080px) / 2));
-    /* Fundo segue o tema (escuro/claro) */
     background: color-mix(in srgb, var(--bg) 50%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -144,19 +149,9 @@ nav a {
     margin-left: 1.3rem;
 }
 
-nav a:hover {
-    color: var(--tx);
-}
+nav a:hover { color: var(--tx); }
 
-.hero {
-    height: auto;
-    display: flex;
-    align-items: center;
-}
-
-.hero .lead {
-    margin: 1.3rem 0 2rem;
-}
+.hero { display: flex; }
 
 /* Container de botões */
 .b {
@@ -165,58 +160,55 @@ nav a:hover {
     gap: .8rem;
 }
 
-/* Botão padrão */
-.btn {
-    display: inline-block;
-    padding: .85rem 1.5rem;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: .95rem;
-    text-decoration: none;
-    color: var(--tx);
-    background: var(--card);
+/* Base compartilhada: botão de texto (.btn) e botão de setas (.srv-btn) */
+.btn, .srv-btn {
     border: 1px solid var(--bd);
+    border-radius: var(--r-ui);
+    color: var(--tx);
     transition: transform .2s, border-color .2s;
 }
 
-.btn:hover {
+.btn {
+    display: inline-block;
+    padding: .85rem 1.0rem;
+    font-weight: 700;
+    font-size: .95rem;
+    text-decoration: none;
+    background: var(--card);
+}
+
+.btn:hover, .srv-btn:hover {
     transform: translateY(-2px);
     border-color: var(--g);
 }
 
-/* Botão primário (verde destaque) */
+/* Botão primário (verde) */
 .btn.p {
     background: var(--g);
     color: var(--bt);
     border-color: transparent;
 }
 
+.btn:focus-visible, .srv-btn:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+
 /* ==========================================================================
-   5. CARDS, GRIDS E FLUXOGRAMAS
+   5. SUPERFÍCIES (CARDS), GRIDS E NOTAS
    ========================================================================== */
 
-.card {
+/* Visual único de "caixa": cards, carrossel e cards do hero */
+.card, .srv, .service-card {
     background: var(--card);
     border: 1px solid var(--bd);
-    border-radius: 16px;
-    padding: 1.7rem;
-    transition: transform .25s, border-color .25s;
+    border-radius: var(--r);
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    border-color: var(--g);
-}
+.card, .srv { padding: 1.7rem; }
 
-.card h3 {
-    font-size: 1.1rem;
-    margin-bottom: .4rem;
-}
+.card { transition: transform .25s, border-color .25s; }
+.card:hover { transform: translateY(-4px); border-color: var(--g); }
 
-.card p, .card li {
-    color: var(--mu);
-    font-size: .93rem;
-}
+.card h3 { font-size: 1.1rem; margin-bottom: .4rem; }
+.card p, .card li { color: var(--mu); font-size: .93rem; }
 
 .card ul {
     list-style: none;
@@ -225,13 +217,12 @@ nav a:hover {
     gap: .35rem;
 }
 
-.card li::before { /* Ícone de check nas listas de tópicos */
-    content: "✓ ";
-    color: var(--g);
-    font-weight: 700;
-}
+.card li::before { content: "✓ "; color: var(--g); font-weight: 700; }
+.card ul.no-list li::before { content: "✕ "; color: var(--bad); }
 
-.tag { /* Pílula/badge em destaque dentro dos cards */
+.hl { border-color: var(--c); } /* Destaque de borda ciano */
+
+.tag { /* Pílula dentro dos cards */
     display: inline-block;
     font-size: .7rem;
     font-weight: 700;
@@ -244,24 +235,14 @@ nav a:hover {
     margin-bottom: .8rem;
 }
 
-/* Grids responsivos */
-.g2, .g3 {
+.g2 {
     display: grid;
-    gap: 1.3rem;
-    margin-top: 2.2rem;
+    gap: var(--gap);
+    margin-top: var(--sp);
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }
 
-.g2 { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
-.g3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-
-.g4 {
-    display: grid;
-    gap: 1.3rem;
-    margin-top: 2.2rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-/* Emoji acima do título do card */
+/* Emoji acima do título */
 .ic {
     display: block;
     font-size: 2rem;
@@ -269,38 +250,7 @@ nav a:hover {
     margin-bottom: .8rem;
 }
 
-.hl { border-color: var(--c); } /* Destaque de borda ciano */
-
-/* Fluxograma do sistema híbrido */
-.flow {
-    display: flex;
-    align-items: center;
-    gap: .7rem;
-    margin-top: 2.2rem;
-    flex-wrap: wrap;
-}
-
-.flow .card {
-    flex: 1 1 200px;
-    text-align: center;
-    padding: 1.3rem;
-}
-
-.flow .card span { font-size: 1.8rem; }
-
-.flow i {
-    color: var(--g);
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.4rem;
-}
-
-.flow small {
-    color: var(--mu);
-    font-size: .82rem;
-}
-
-/* Nota discreta (dados/planilhas e tecnologias) */
+/* Nota discreta (seção técnica) */
 .nota {
     margin-top: 2rem;
     max-width: 760px;
@@ -310,19 +260,14 @@ nav a:hover {
     gap: .6rem;
 }
 
-.nota p {
-    color: var(--mu);
-    font-size: .9rem;
-}
-
+.nota p { color: var(--mu); font-size: .9rem; }
 .nota b { color: var(--tx); }
 
-/* Seção de contato centralizada */
+/* Contato centralizado */
 .ct { text-align: center; }
 .ct .lead { margin: 0 auto 2rem; }
 .ct .b { justify-content: center; }
 
-/* Rodapé */
 footer {
     text-align: center;
     color: var(--mu);
@@ -342,34 +287,24 @@ footer {
     opacity: 1;
     transform: none;
 }
-/* Ícone de X para a coluna de desvantagens no comparativo */
-.card ul.no-list li::before {
-    content: "✕ ";
-    color: #ef4444;
-    font-weight: 700;
-}
 
 /* ==========================================================================
-   5.1 CARROSSEL DE SERVIÇOS (bloco único, slides individuais)
+   5.1 CARROSSEL DE SERVIÇOS
    ========================================================================== */
 
 .srv {
-    margin-top: 2.2rem;
-    background: var(--card);
-    border: 1px solid var(--bd);
-    border-radius: 20px;
-    padding: 1.7rem;
+    margin-top: var(--sp);
     overflow: hidden;
 }
 
-/* Todos os slides ocupam a mesma célula: a altura é a do maior */
+/* Todos os slides na mesma célula: a altura é a do maior */
 .slides { display: grid; }
 
 .slide {
     grid-area: 1 / 1;
     display: grid;
     grid-template-columns: .75fr 1.6fr;
-    gap: 2.2rem;
+    gap: var(--sp);
     align-items: center;
     visibility: hidden;
     opacity: 0;
@@ -381,30 +316,15 @@ footer {
 .slide-txt p  { color: var(--mu); font-size: 1rem; margin-bottom: 1.4rem; max-width: 460px; }
 .slide-txt .ic { font-size: 2.4rem; }
 
-button.btn { font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; }
-
-/* Espaço reservado para a imagem de cada serviço */
+/* Moldura da imagem de cada serviço */
 .media {
     aspect-ratio: 16 / 9;
     border-radius: 14px;
     border: 1px solid var(--bd);
     overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(var(--p1), .10), rgba(var(--p2), .10)),
-        var(--bg);
+    background: var(--tint);
 }
 .media img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.ph {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
-    border: 2px dashed var(--bd);
-    border-radius: 14px;
-    color: var(--mu);
-    text-align: center;
-    padding: 1rem;
-}
-.ph span  { font-size: 2.2rem; }
-.ph small { font-size: .8rem; }
 
 /* Controles */
 .srv-ctrl {
@@ -421,56 +341,96 @@ button.btn { font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer
     background: var(--bd);
     transition: width .35s, background .35s;
 }
-.srv-dots i.on { width: 26px; background: linear-gradient(90deg, var(--g), var(--c)); }
+.srv-dots i.on { width: 26px; background: var(--grad); }
 
 .srv-nav { display: flex; gap: .5rem; }
 .srv-btn {
-    width: 42px; height: 42px; border-radius: 10px;
-    background: var(--bg); color: var(--tx);
-    border: 1px solid var(--bd);
-    font: inherit; font-size: 1.1rem; cursor: pointer;
-    transition: transform .2s, border-color .2s, background .2s;
+    width: 42px; height: 42px;
+    background: var(--bg);
+    font-size: 1.1rem;
 }
-.srv-btn:hover { transform: translateY(-2px); border-color: var(--g); }
 .srv-btn:active { transform: scale(.94); }
-.srv-btn:focus-visible, .btn:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
-
-/* Aviso da demo (quando não há link) */
-.toast {
-    position: fixed; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-    transform: translate(-50%, 20px);
-    background: var(--card); color: var(--tx);
-    border: 1px solid var(--g); border-radius: 10px;
-    padding: .7rem 1.1rem; font-size: .9rem; font-weight: 500;
-    opacity: 0; pointer-events: none; z-index: 20;
-    transition: opacity .3s, transform .3s;
-}
-.toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 /* ==========================================================================
-   6. RESPONSIVIDADE E ACESSIBILIDADE (MEDIA QUERIES)
+   5.2 HERO: texto à esquerda, serviços à direita
    ========================================================================== */
 
-/* Ajustes para telas menores (smartphones) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--gap) 2.5rem;
+    align-items: center;
+}
+
+.hero-head { grid-column: 1 / -1; } /* título ocupa a largura toda; corpo e cards ficam lado a lado */
+
+.hero-body .lead { margin: 0 0 2rem; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .8rem;
+}
+
+.service-card { padding: 1rem; }
+.service-card h3 { font-size: .95rem; margin-bottom: .2rem; }
+.service-card p  { font-size: .82rem; line-height: 1.45; }
+
+/* Ícone SVG com o mesmo tint do .media */
+.service-card .si {
+    display: block;
+    width: 38px; height: 38px;
+    padding: 8px;
+    margin-bottom: .7rem;
+    border-radius: 11px;
+    border: 1px solid var(--bd);
+    background: var(--tint);
+    color: var(--g);
+}
+
+@media (min-width: 901px) {
+    .hero-grid h1 { font-size: clamp(2rem, 4vw, 3.2rem); }
+}
+
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .services-grid { margin-top: .7rem; }
+}
+
+/* ==========================================================================
+   6. MOBILE E ACESSIBILIDADE
+   ========================================================================== */
+
 @media (max-width: 700px) {
     nav {
         -webkit-backdrop-filter: none;
         backdrop-filter: none;
         background: color-mix(in srgb, var(--bg) 85%, transparent);
     }
-    nav a { display: none; } /* Oculta links do menu no mobile */
-    .flow i {
-        transform: rotate(90deg); /* Aponta setas do fluxo para baixo */
-        width: 100%;
-        text-align: center;
-    }
-    section { padding: 3.5rem 0; }
+    nav a { display: none; }
+    section { padding: 1.5rem 0; }
     .srv { padding: 1.2rem; }
     .slide { grid-template-columns: 1fr; gap: 1.2rem; }
     .slide .media { order: -1; }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .7rem;
+    }
+
+    .service-card {
+        padding: .85rem;
+    }
+
+    .service-card h3 {
+        font-size: .85rem;
+    }
+
+    .service-card p {
+        font-size: .75rem;
+    }
 }
 
-/* Acessibilidade: desativa animações para usuários que preferem menos movimento */
 @media (prefers-reduced-motion: reduce) {
     .rv {
         opacity: 1;

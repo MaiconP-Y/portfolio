@@ -38,19 +38,97 @@
     <main>
         <!-- Seção principal / Hero -->
         <section class="hero">
+            <div class="w hero-grid">
+                <!-- Título: ocupa só a coluna esquerda, igual ao original (sem mudar as quebras) -->
+                <div class="hero-head">
+                    <span class="ey">Sistemas com tecnologias mais modernas</span>
+                    <h1>Sites e sistemas sob medida para <em>reduzir custos</em> e otimizar processos</h1>
+                </div>
+
+                <!-- Parágrafos + botões (esquerda) -->
+                <div class="hero-body">
+                    <p class="lead">Desenvolvo soluções digitais que ajudam empresas a organizar processos, melhorar o atendimento e trabalhar com mais eficiência. Do site institucional ao sistema de gestão, cada projeto é pensado para atender às necessidades reais do negócio.</p>
+                    <p class="lead">
+                        📍 Instalação e suporte presencial em Sengés, Itararé e região. Sistemas online para todo o Brasil.
+                    </p>
+                    <div class="b">
+                        <a class="btn p" href="#contato">Fazer orçamento</a>
+                        <a class="btn" href="#exemplos">Ver projetos reais</a>
+                    </div>
+                </div>
+
+                <!-- Possibilidades gerais: à direita dos parágrafos e botões, centralizadas na vertical -->
+                <div class="services-grid">
+
+                    <article class="service-card">
+                        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg>
+                        <h3>Sites e e-commerce</h3>
+                        <p>Presença digital e vendas.</p>
+                    </article>
+
+                    <article class="service-card">
+                        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="9" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="5" rx="1.5"/><rect x="13.5" y="11.5" width="7" height="9" rx="1.5"/><rect x="3.5" y="15.5" width="7" height="5" rx="1.5"/></svg>
+                        <h3>Sistemas de gestão</h3>
+                        <p>Controle e organização.</p>
+                    </article>
+
+                    <article class="service-card">
+                        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9 13v1.5M15 13v1.5"/></svg>
+                        <h3>Chatbots e IA</h3>
+                        <p>Atendimento inteligente.</p>
+                    </article>
+
+                    <article class="service-card">
+                        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6" height="6" rx="1.5"/><rect x="14.5" y="14.5" width="6" height="6" rx="1.5"/><path d="M6.5 9.5v4a2 2 0 0 0 2 2h6"/></svg>
+                        <h3>Automações</h3>
+                        <p>Processos eficientes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- Seção: Serviços oferecidos -->
+        <section id="exemplos">
             <div class="w">
-                <span class="ey">Sistemas com tecnologias mais modernas do mercado</span>
-                <h1>Sites e sistemas em geral sob medida para <em>reduzir custos</em>.</h1>
-                <p class="lead">Antes de qualquer código, entendo seu nicho, suas plataformas atuais e suas reais necessidades — seja para pedidos, caixa ou e-commerce.</p>
-                <p class="lead">
-                    O objetivo é centralizar operações, cortar custos e automatizar desde um financeiro enxuto até a emissão de notas. Tudo isso integrando chatbots com ou sem IA para filtrar o atendimento e garantir que você gaste tempo apenas com o que importa.
-                </p>
-                <p class="lead">
-                    📍 Instalação e suporte presencial em Sengés, Itararé e região. Sistemas online para todo o Brasil.
-                </p>
-                <div class="b">
-                    <a class="btn p" href="#contato">Solicitar orçamento</a>
-                    <a class="btn" href="#modelos">Ver os modelos</a>
+                <span class="ey rv">PROJETOS EM DESTAQUE</span>
+                <h2 class="rv">Soluções que já <em>saíram do papel</em></h2>
+
+                <div class="srv rv" id="servicos" role="group" aria-roledescription="carrossel" aria-label="Serviços">
+                    <div class="slides">
+                        <!-- Slide 1: E-commerce -->
+                        <article class="slide active" data-id="ecommerce" aria-label="1 de 2">
+                            <div class="slide-txt">
+                                <span class="ic" aria-hidden="true">🌐</span>
+                                <h3>Web e e-commerce</h3>
+                                <p>Vitrines e catálogos com a sua marca, rápidos e pensados para converter. Com vendas ou com direcionamento para onde quiser.</p>
+                                <a class="btn p" href="https://flipstylecompany.com.br" target="_blank" rel="noopener">▶ Ver site</a>
+                            </div>
+                            <div class="media">
+                                <img src="assets/img/flipstyle_portfolio.webp" alt="Loja FlipStyle Company" loading="lazy">
+                            </div>
+                        </article>
+
+                        <!-- Slide 2: Relatórios / Financeiro -->
+                        <article class="slide" data-id="relatorios" aria-label="2 de 2">
+                            <div class="slide-txt">
+                                <span class="ic" aria-hidden="true">📊</span>
+                                <h3>Controle financeiro e relatórios</h3>
+                                <p>Gestão de caixa, controle de diárias e extração facilitada para CSV e Excel, ideal para conferência rápida ou envio ao contador. Acesse a versão interativa abaixo para testar os lançamentos e filtros na prática.</p>
+                                <a class="btn p" href="https://maiconp-y.github.io/financeiro_estatico/" target="_blank" rel="noopener">▶ Testar sistema demo</a>
+                            </div>
+                            <div class="media">
+                                <img src="assets/img/dashboard.webp" alt="Dashboard Financeiro" loading="lazy">
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="srv-ctrl">
+                        <span class="srv-count"><b id="srvN">01</b> / 02</span>
+                        <div class="srv-dots" id="srvDots" aria-hidden="true"></div>
+                        <div class="srv-nav">
+                            <button type="button" class="srv-btn" id="srvPrev" aria-label="Anterior">←</button>
+                            <button type="button" class="srv-btn" id="srvNext" aria-label="Próximo">→</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -58,11 +136,8 @@
         <!-- Seção: Comparativo -->
         <section id="comparativo">
             <div class="w">
-                <span class="ey rv">Por que escolher sob medida</span>
-                <h2 class="rv">Sistemas alugados vs. solução sob medida <em>com sua infraestrutura</em></h2>
-                <p class="lead rv">Veja na prática a diferença entre alugar uma ferramenta com funcionalidades que te deixam perdidos e ter uma estrutura construída para a realidade da sua operação.
-                </p>
-                
+                <span class="ey rv">Sistemas alugados vs. solução sob medida</span>
+                <h2 class="rv">Seu negócio não precisa se adaptar, o sistema deve se <em>adaptar ao seu negócio</em></h2>
                 <div class="g2">
                     <!-- Lado esquerdo: sistemas comuns -->
                     <div class="card rv">
@@ -84,12 +159,11 @@
                         <h3>O modelo híbrido ou online</h3>
                         <p>Controle total, podendo isolar certas operações localmente e mantendo só o necessário online.</p>
                         <ul>
-                            <li>Sem taxas abusivas por venda ou mensalidades absurdas, você paga apenas pelo que usa, em casos pequenos nem há manutenção</li>
+                            <li>Sem taxas abusivas por venda ou mensalidades absurdas, você paga apenas pelo que usa</li>
                             <li>Decidimos o que fica online ou na sua máquina</li>
-                            <li>Continua operando normalmente mesmo sem internet utilizando o sistema local</li>
+                            <li>Operações processadas localmente podem continuar funcionando mesmo sem conexão.</li>
                             <li>Atendimento direto com quem desenvolveu o sistema</li>
                             <li>Feito sob medida para o seu negócio sem funcionalidades descartáveis</li>
-                            <li>Dados e backups seguros na sua própria máquina</li>
                         </ul>
                     </div>
                 </div>
@@ -101,9 +175,8 @@
             <div class="w">
                 <span class="ey rv">Dois caminhos</span>
                 <h2 class="rv">Escolha o modelo que cabe na <em>sua operação</em></h2>
-                <p class="lead rv">Mesma solução, duas arquiteturas. Você decide o nível de controle, custo e infraestrutura. 
-                    Vale ressaltar que ambas as opções oferecem os mesmos benefícios em termos de funcionalidades. 
-                    Dois produtos escaláveis caso seu negócio cresça, deixando só o necessário ficar 24 horas no ar.</p>
+                <p class="lead rv">Cada negócio tem necessidades diferentes. 
+                Por isso, desenvolvo soluções em dois modelos de arquitetura, que podem ser adaptados conforme sua operação e necessidade de crescimento.</p>
                 
                 <div class="g2">
                     <!-- Modelo híbrido -->
@@ -112,13 +185,11 @@
                         <h3>Metade local, metade web</h3>
                         <p>O sistema roda no computador da empresa e uma ponte segura o conecta à web se necessário. 
                         Focado em operações físicas e negócios robustos — como lojas, restaurantes, mercados, etc. 
-                        Para quem tem volume alto de dados e não pode parar de funcionar se a internet oscilar.
                         Podendo crescer conforme a necessidade seja para internet ou localmente.</p>
                         <ul>
-                            <li>Dados sensíveis ficam com você</li>
-                            <li>Funciona com internet instável</li>
+                            <li>Dados sensíveis ficam com você ou na nuvem</li>
+                            <li>Maior independência da internet</li>
                             <li>Baixa financeira em tempo real</li>
-                            <li>Sem mensalidade de nuvem</li>
                             <li>Instalação e suporte presencial em Sengés, Itararé e região</li>
                             <li>Backups locais ou na nuvem automáticos</li>
                         </ul>
@@ -139,53 +210,6 @@
                             <li>Ideal para começar rápido</li>
                             <li>Atendimento para todo o Brasil</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção: Serviços oferecidos -->
-        <section>
-            <div class="w">
-                <span class="ey rv">O que eu faço</span>
-                <h2 class="rv">Soluções para <em>vender e operar</em> melhor, podendo adicionar qualquer funcionalidade</h2>
-
-                <div class="srv rv" id="servicos" role="group" aria-roledescription="carrossel" aria-label="Serviços">
-                    <div class="slides">
-                        <!-- Slide 1: E-commerce -->
-                        <article class="slide active" data-id="ecommerce" aria-label="1 de 2">
-                            <div class="slide-txt">
-                                <span class="ic" aria-hidden="true">🌐</span>
-                                <h3>Web e e-commerce</h3>
-                                <p>Vitrines e catálogos com a sua marca, rápidos e pensados para converter. Com vendas ou com direcionamento para onde quiser.</p>
-                                <button type="button" class="btn p demo" data-demo="ecommerce" data-demo-url="https://flipstylecompany.com.br">▶ Ver site</button>
-                            </div>
-                            <div class="media">
-                                <img src="assets/img/flipstyle_portfolio.webp" alt="Loja FlipStyle Company" loading="lazy">
-                            </div>
-                        </article>
-
-                        <!-- Slide 2: Relatórios / Financeiro -->
-                        <article class="slide" data-id="relatorios" aria-label="2 de 2">
-                            <div class="slide-txt">
-                                <span class="ic" aria-hidden="true">📊</span>
-                                <h3>Controle financeiro e relatórios</h3>
-                                <p>Gestão de caixa, controle de diárias e extração facilitada para CSV e Excel, ideal para conferência rápida ou envio ao contador. Acesse a versão interativa abaixo para testar os lançamentos e filtros na prática.</p>
-                                <button type="button" class="btn p demo" data-demo="relatorios" data-demo-url="https://maiconp-y.github.io/financeiro_estatico/">▶ Testar sistema demo</button>
-                            </div>
-                            <div class="media">
-                                <img src="assets/img/dashboard.webp" alt="Dashboard Financeiro" loading="lazy">
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="srv-ctrl">
-                        <span class="srv-count"><b id="srvN">01</b> / 02</span>
-                        <div class="srv-dots" id="srvDots" aria-hidden="true"></div>
-                        <div class="srv-nav">
-                            <button type="button" class="srv-btn" id="srvPrev" aria-label="Anterior">←</button>
-                            <button type="button" class="srv-btn" id="srvNext" aria-label="Próximo">→</button>
-                        </div>
                     </div>
                 </div>
             </div>
