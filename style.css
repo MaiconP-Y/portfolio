@@ -2,56 +2,24 @@
    1. VARIÁVEIS DE ESTILO (THEMING & DESIGN TOKENS)
    ========================================================================== */
 
-/* Tema Escuro (Padrão) */
+/* Tema escuro (padrão) */
 :root {
     box-sizing: border-box;
     /* Suporte para entalhes/notches de celulares (iPhones modernos) */
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
     color-scheme: dark;
-    /* Paleta de Cores (Dark Mode) */
+    /* Paleta de cores (dark mode) */
     --bg: #0b0d12;              /* Cor de fundo principal */
     --card: #141922;            /* Fundo dos cartões */
     --bd: rgba(255, 255, 255, .09); /* Cor das bordas finas */
     --tx: #f3f4f6;              /* Cor do texto principal */
     --mu: #d2d6dd;              /* Cor do texto secundário/apagado */
-    --g: #00af5a;               /* Destaque Verde (Neon/Esmeralda) */
-    --c: #1eadc4;               /* Destaque Ciano */
+    --g: #00af5a;               /* Destaque verde (neon/esmeralda) */
+    --c: #1eadc4;               /* Destaque ciano */
     --bt: #06210f;              /* Cor de texto para botões verdes */
-    --p1: 0, 230, 118;          /* RGB da partícula verde (para o Canvas) */
-    --p2: 34, 211, 238;         /* RGB da partícula ciano (para o Canvas) */
-}
-
-/* Tema Claro Automático (caso o usuário use o sistema operacional no modo claro) */
-@media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-        --bg: #f5f7fa;
-        --card: #fff;
-        --bd: rgba(15, 20, 30, .1);
-        --tx: #10141c;
-        --mu: #556070;
-        --g: #008a45;
-        --c: #007c91;
-        --bt: #fff;
-        --p1: 0, 150, 80;
-        --p2: 0, 130, 150;
-        color-scheme: light;
-    }
-}
-
-/* Forçar Tema Claro (caso tenha uma chave data-theme="light" via script) */
-:root[data-theme="light"] {
-    --bg: #f5f7fa;
-    --card: #fff;
-    --bd: rgba(15, 20, 30, .1);
-    --tx: #10141c;
-    --mu: #556070;
-    --g: #008a45;
-    --c: #007c91;
-    --bt: #fff;
-    --p1: 0, 150, 80;
-    --p2: 0, 130, 150;
-    color-scheme: light;
+    --p1: 0, 230, 118;          /* RGB da partícula verde (para o canvas) */
+    --p2: 34, 211, 238;         /* RGB da partícula ciano (para o canvas) */
 }
 
 /* ==========================================================================
@@ -89,7 +57,7 @@ body {
     transform: translateZ(0); /* camada própria na GPU */
 }
 
-/* Layout Container Centralizador */
+/* Container de layout centralizado */
 .w {
     max-width: 1080px;
     margin: 0 auto;
@@ -132,7 +100,7 @@ h2 {
     margin-bottom: .9rem;
 }
 
-em { /* Texto com gradiente colorido (Verde para Ciano) */
+em { /* Texto com gradiente colorido (verde para ciano) */
     font-style: normal;
     background: linear-gradient(90deg, var(--g), var(--c));
     -webkit-background-clip: text;
@@ -159,7 +127,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: .9rem max(1.5rem, calc((100% - 1080px) / 2));
-    /* Fundo agora segue o tema (escuro/claro) em vez de cor fixa */
+    /* Fundo segue o tema (escuro/claro) */
     background: color-mix(in srgb, var(--bg) 50%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -190,14 +158,14 @@ nav a:hover {
     margin: 1.3rem 0 2rem;
 }
 
-/* Container de Botões */
+/* Container de botões */
 .b {
     display: flex;
     flex-wrap: wrap;
     gap: .8rem;
 }
 
-/* Botão Padrão */
+/* Botão padrão */
 .btn {
     display: inline-block;
     padding: .85rem 1.5rem;
@@ -216,7 +184,7 @@ nav a:hover {
     border-color: var(--g);
 }
 
-/* Botão Primário (Verde Destaque) */
+/* Botão primário (verde destaque) */
 .btn.p {
     background: var(--g);
     color: var(--bt);
@@ -263,7 +231,7 @@ nav a:hover {
     font-weight: 700;
 }
 
-.tag { /* Pílula/Badge em destaque dentro dos cards */
+.tag { /* Pílula/badge em destaque dentro dos cards */
     display: inline-block;
     font-size: .7rem;
     font-weight: 700;
@@ -276,7 +244,7 @@ nav a:hover {
     margin-bottom: .8rem;
 }
 
-/* Grids Responsivos */
+/* Grids responsivos */
 .g2, .g3 {
     display: grid;
     gap: 1.3rem;
@@ -301,9 +269,9 @@ nav a:hover {
     margin-bottom: .8rem;
 }
 
-.hl { border-color: var(--c); } /* Highlight de borda ciano */
+.hl { border-color: var(--c); } /* Destaque de borda ciano */
 
-/* Seção do Fluxograma do Sistema Híbrido */
+/* Fluxograma do sistema híbrido */
 .flow {
     display: flex;
     align-items: center;
@@ -349,7 +317,7 @@ nav a:hover {
 
 .nota b { color: var(--tx); }
 
-/* Seção de Contato Centralizada */
+/* Seção de contato centralizada */
 .ct { text-align: center; }
 .ct .lead { margin: 0 auto 2rem; }
 .ct .b { justify-content: center; }
@@ -363,7 +331,7 @@ footer {
     border-top: 1px solid var(--bd);
 }
 
-/* Animação de Entrada (Scroll Reveal) */
+/* Animação de entrada (scroll reveal) */
 .rv {
     opacity: 0;
     transform: translateY(22px);
@@ -467,7 +435,7 @@ button.btn { font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer
 .srv-btn:active { transform: scale(.94); }
 .srv-btn:focus-visible, .btn:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
 
-/* Aviso da demo (enquanto não houver link) */
+/* Aviso da demo (quando não há link) */
 .toast {
     position: fixed; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
     transform: translate(-50%, 20px);

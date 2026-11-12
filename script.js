@@ -1,7 +1,7 @@
 // 1. Atualiza o ano no rodapé automaticamente
 document.getElementById('y').textContent = new Date().getFullYear();
 
-// 2. Animação de Scroll (IntersectionObserver)
+// 2. Animação de scroll (IntersectionObserver)
 // Faz os elementos com a classe `.rv` aparecerem suavemente conforme entram na tela
 var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
@@ -82,7 +82,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
         x0 = null;
     });
 
-    // Gatilho das demos: abre data-demo-url; sem link, avisa e dispara o evento "demo"
+    // Gatilho das demos: abre data-demo-url; sem link, exibe aviso e dispara o evento "demo"
     var toast = document.createElement('div');
     toast.className = 'toast';
     toast.setAttribute('role', 'status');
@@ -92,7 +92,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
     document.querySelectorAll('.demo').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var url = btn.dataset.demoUrl, id = btn.dataset.demo;
-            // Ponto de extensão: ouça este evento para abrir um modal/iframe de demo
+            // Ponto de extensão: o evento "demo" permite abrir um modal/iframe de demo
             document.dispatchEvent(new CustomEvent('demo', { detail: { id: id, url: url } }));
             if (url) { window.open(url, '_blank', 'noopener'); return; }
             toast.textContent = 'Demo em breve: ' + id;
@@ -103,7 +103,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
     });
 })();
 
-// 3. Efeito de Partículas 3D em Canvas Puro (Zero Bibliotecas)
+// 3. Efeito de partículas 3D em Canvas puro (sem bibliotecas)
 (function() {
     var canvas = document.getElementById('bg'),
         ctx = canvas.getContext('2d'),
@@ -118,7 +118,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
         rafId = 0,
         lastFrame = 0;
 
-    // Checa se o usuário prefere menos movimento
+    // Verifica se o usuário prefere menos movimento
     var reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches,
         computedStyles = getComputedStyle(document.documentElement),
         color1, color2;
@@ -144,7 +144,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
         });
     }
 
-    // Ajusta o tamanho do Canvas dinamicamente na tela mantendo a proporção de pixels (Retina/High DPI)
+    // Ajusta o tamanho do canvas à tela mantendo a proporção de pixels (Retina/High DPI)
     function resizeCanvas() {
         var dpi = Math.min(devicePixelRatio || 1, isMobile ? 1 : 1.5);
         width = innerWidth;
@@ -165,7 +165,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
     });
     resizeCanvas();
 
-    // Loop de Animação das Partículas (Render Loop)
+    // Loop de animação das partículas (render loop)
     function render(now) {
         // Celular: limita a ~30 FPS (pula frames intermediários)
         if (isMobile && now && now - lastFrame < 33) { start(); return; }
@@ -181,7 +181,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
             cos = Math.cos(angle),
             sin = Math.sin(angle);
 
-        // Desenha cada partícula projetando do espaço 3D para o Canvas 2D
+        // Desenha cada partícula projetando do espaço 3D para o canvas 2D
         for (var i = 0; i < totalParticles; i++) {
             var p = particles[i],
                 X = p.x * cos + p.z * sin,
@@ -213,7 +213,7 @@ document.querySelectorAll('.rv').forEach(function(el) {
         if (!rafId && isRunning && !frozen) rafId = requestAnimationFrame(loop);
     }
 
-    // Otimização: Pausa a animação quando a aba não está visível para economizar CPU/Bateria
+    // Pausa a animação quando a aba não está visível para economizar CPU/bateria
     document.addEventListener('visibilitychange', function() {
         isRunning = !document.hidden;
         if (isRunning) render();

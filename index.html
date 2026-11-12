@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
     <!-- Configurações básicas de codificação e responsividade para dispositivos móveis -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="color-scheme" content="dark">
-    <meta name="supported-color-schemes" content="dark">
-    <meta name="theme-color" content="#0b0d12">
     <!-- Título da página exibido na aba do navegador -->
     <title>Maicon Prado — Sistemas sob medida</title>
     
@@ -16,17 +13,17 @@
     <!-- Pré-conexão com os servidores de fontes do Google para otimizar o tempo de carregamento -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Importação da fonte 'Plus Jakarta Sans' com variações de peso (500, 700, 800) -->
+    <!-- Fonte 'Plus Jakarta Sans' com pesos 500, 700 e 800 -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Elemento Canvas onde as partículas flutuantes 3D são desenhadas -->
+    <!-- Canvas onde as partículas flutuantes 3D são desenhadas -->
     <canvas id="bg" aria-hidden="true"></canvas>
 
-    <!-- Barra de Navegação -->
+    <!-- Barra de navegação -->
     <nav>
         <b>Portfólio - Maicon Prado</b>
         <div>
@@ -37,9 +34,9 @@
         </div>
     </nav>
 
-    <!-- Conteúdo Principal -->
+    <!-- Conteúdo principal -->
     <main>
-        <!-- Seção Principal / Hero -->
+        <!-- Seção principal / Hero -->
         <section class="hero">
             <div class="w">
                 <span class="ey">Sistemas com tecnologias mais modernas do mercado</span>
@@ -58,7 +55,7 @@
             </div>
         </section>
 
-        <!-- Seção: Comparativo Direto (Substituindo o Como Funciona) -->
+        <!-- Seção: Comparativo -->
         <section id="comparativo">
             <div class="w">
                 <span class="ey rv">Por que escolher sob medida</span>
@@ -67,7 +64,7 @@
                 </p>
                 
                 <div class="g2">
-                    <!-- Lado Esquerdo: Sistemas Comuns -->
+                    <!-- Lado esquerdo: sistemas comuns -->
                     <div class="card rv">
                         <span class="tag">Sistemas tradicionais</span>
                         <h3>O que o mercado empurra</h3>
@@ -81,7 +78,7 @@
                         </ul>
                     </div>
 
-                    <!-- Lado Direito: Sua Solução (com destaque .hl) -->
+                    <!-- Lado direito: solução sob medida (destaque .hl) -->
                     <div class="card hl rv">
                         <span class="tag">Sua operação sob medida</span>
                         <h3>O modelo híbrido ou online</h3>
@@ -99,7 +96,7 @@
             </div>
         </section>
 
-        <!-- Seção: Modelos de Arquitetura -->
+        <!-- Seção: Modelos de arquitetura -->
         <section id="modelos">
             <div class="w">
                 <span class="ey rv">Dois caminhos</span>
@@ -109,7 +106,7 @@
                     Dois produtos escaláveis caso seu negócio cresça, deixando só o necessário ficar 24 horas no ar.</p>
                 
                 <div class="g2">
-                    <!-- Modelo Híbrido -->
+                    <!-- Modelo híbrido -->
                     <div class="card hl rv">
                         <span class="tag">Híbrido</span>
                         <h3>Metade local, metade web</h3>
@@ -127,7 +124,7 @@
                         </ul>
                     </div>
 
-                    <!-- Modelo Cloud/Nuvem -->
+                    <!-- Modelo 100% online (nuvem) -->
                     <div class="card rv">
                         <span class="tag">100% online</span>
                         <h3>Menos infraestrutura, mais praticidade</h3>
@@ -147,7 +144,7 @@
             </div>
         </section>
 
-        <!-- Seção: Serviços Oferecidos -->
+        <!-- Seção: Serviços oferecidos -->
         <section>
             <div class="w">
                 <span class="ey rv">O que eu faço</span>
@@ -183,7 +180,6 @@
                     </div>
 
                     <div class="srv-ctrl">
-                        <!-- Atualizado para refletir o total de 2 itens -->
                         <span class="srv-count"><b id="srvN">01</b> / 02</span>
                         <div class="srv-dots" id="srvDots" aria-hidden="true"></div>
                         <div class="srv-nav">
@@ -195,7 +191,7 @@
             </div>
         </section>
         
-        <!-- Seção: Detalhes Técnicos -->
+        <!-- Seção: Detalhes técnicos -->
         <section id="tecnico">
             <div class="w">
                 <span class="ey rv">Para quem quer saber mais</span>
@@ -209,7 +205,7 @@
             </div>
         </section>
 
-        <!-- Seção: Contato / Chamada para Ação -->
+        <!-- Seção: Contato / chamada para ação -->
         <section id="contato" class="ct">
             <div class="w">
                 <span class="ey rv">Vamos conversar</span>
@@ -230,9 +226,7 @@
         © <span id="y"></span> Maicon Prado · Sistemas sob medida · Sengés/PR · Itararé/SP
     </footer>
 
-    <!-- ==========================================================================
-       7. SCRIPTS (LOGICA DE INTERATIVIDADE & CANVAS 3D)
-       ========================================================================== -->
+    <!-- Scripts: interatividade e canvas 3D -->
     <script src="script.js"></script>
 </body>
 </html>
